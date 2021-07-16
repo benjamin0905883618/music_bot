@@ -38,7 +38,7 @@ async def play(ctx, url :str = ""):
                 os.rename(file,"song.mp4")
         
         print("finish rename")
-        voice.play(discord.FFmpegPCMAudio(executable="ffmpeg/bin/ffmpeg.exe", source="song.mp4"))
+        voice.play(discord.FFmpegPCMAudio("song.mp4"))
         print("playing audio")
 
 @client.command()
