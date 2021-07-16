@@ -38,7 +38,7 @@ async def play(ctx, url :str = ""):
                 os.rename(file,"song.mp4")
         
         print("finish rename")
-        voice.play(discord.FFmpegPCMAudio("song.mp4"))
+        voice.play(discord.FFmpegPCMAudio(executable="ffmpeg/bin/ffmpeg.exe", source="song.mp4"))
         print("playing audio")
 
 @client.command()
@@ -75,5 +75,11 @@ async def edit_game(ctx,gamename):
 async def command_list(ctx):
     list = '!join: join the voice channel you are\n!leave: leave voice channel\n!play URL_from_YouTube: play the music from youtube\n!pause: pause music\n!resume: resume music\n!edit_game: change the game which the bot will activity\n'
     await ctx.send(list)
-    
-client.run(os.environ['TOKEN'])
+
+@client.command()
+async def stop(ctx):
+    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    voice.stop()
+
+client.run("ODY1MjUwOTI5MzQzMDcwMjU4.YPBRuQ.3zPBFZEmSTcfK3LtWF_p4bfcT88")
+#client.run(os.environ['TOKEN'])
