@@ -5,6 +5,21 @@ import os
 from pytube import YouTube
 
 client = commands.Bot(command_prefix = "!")
+playing_list = []
+
+def endSong(path):
+    os.remove(path)
+    if len(playing_list) != 0:
+        voice = discord.utils.get(client.voice_clients)
+        url = playing_list[0]
+        del playing_list[0]
+        
+        YouTube(url).streams.first().download()
+        for file in os.listdir("./"):
+            if file.endswith(".mp4"):
+                os.rename(file,"song.mp4")
+        
+        voice.play(discord.FFmpegPCMAudio(executable="ffmpeg/bin/ffmpeg.exe", source="song.mp4"),after = lambda x: endSong("song.mp4"))
 
 @client.event
 async def on_ready():
@@ -21,8 +36,10 @@ async def join(ctx):
 @client.command()
 async def play(ctx, url :str = ""):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    if voice == None:
-        await ctx.send("The Bot is not connected to a voice channel")
+    if voice.is_playing():
+        playing_list.append(url)
+        print(playing_list)
+        await ctx.send("insert song into playing_list")
     else:
         song_there = os.path.isfile("song.mp4")
         try:
@@ -37,10 +54,8 @@ async def play(ctx, url :str = ""):
             if file.endswith(".mp4"):
                 os.rename(file,"song.mp4")
         
-        print("finish rename")
-        voice.play(discord.FFmpegPCMAudio("song.mp4"))
-        print("playing audio")
-
+        voice.play(discord.FFmpegPCMAudio(executable="ffmpeg/bin/ffmpeg.exe", source="song.mp4"),after = lambda x: endSong("song.mp4"))
+        
 @client.command()
 async def leave(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
@@ -80,5 +95,5 @@ async def command_list(ctx):
 async def stop(ctx):
     voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
     voice.stop()
-
+    
 client.run(os.environ['TOKEN'])
