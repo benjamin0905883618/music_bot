@@ -11,6 +11,7 @@
 1. 點入Bot的選項, 可以看到機器人的Token, 點擊 **Click to Reveal Token**可以查看自己機器人的Token, 將Token 儲存下來備用。
 2. 點入OAuth2選項, 將**Client ID**的地方也複製下來, 接著利用[這個連結](https://discordapp.com/oauth2/authorize?permissions=301001759&scope=bot&client_id=你的機器人的clientID)把client_id的地方改成你自己的機器人client_id, 就可以將機器人邀請進自己的伺服器了
 
+**注意**\
 **機器人的Token不能在網路上洩漏, 一旦洩漏Discord官方會自動幫你重新建立, 
 到時候就要去自己的程式把Token換掉, 
 記得在網路上存程式(如: Github)的時候要把Token刪掉。**
@@ -67,7 +68,7 @@ async def leave(ctx):
 client.run("Input Your Token")
 ```
 
-
+**注意**\
 **這個步驟中可能會缺一些套件,
 在cmd使用 "pip install 缺少的套件名稱"
 就可以解決**
