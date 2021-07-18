@@ -1,8 +1,5 @@
 # Discord音樂機器人
 
-[![hackmd-github-sync-badge](https://hackmd.io/GHB52IxRT52hWGh_HF-Ylw/badge)](https://hackmd.io/@lnGojzQ2THyJmN-nQtZp8g/HyPK1VZC_)
-
-
 ### 前置步驟
 1. 安裝python, 記得要包含pip
 2. Discord帳號
@@ -11,13 +8,13 @@
 前往 Discord官網 -> 開發人員 -> Application 可以找到應用程式的介面
 建立一個新的應用程式後, 可以看到這個頁面
 ![](https://i.imgur.com/Qr1DDVH.png)
-1. 點入Bot的選項, 可以看到機器人的Token, 點擊 $\mbox{Click to Reveal Token}$可以查看自己機器人的Token, 將Token 儲存下來備用。
-2. 點入OAuth2選項, 將$\mbox{Client ID}$的地方也複製下來, 接著利用[這個連結](https://discordapp.com/oauth2/authorize?permissions=301001759&scope=bot&client_id=你的機器人的clientID)把client_id的地方改成你自己的機器人client_id, 就可以將機器人邀請進自己的伺服器了
-:::warning
+1. 點入Bot的選項, 可以看到機器人的Token, 點擊 **Click to Reveal Token**可以查看自己機器人的Token, 將Token 儲存下來備用。
+2. 點入OAuth2選項, 將**Client ID**的地方也複製下來, 接著利用[這個連結](https://discordapp.com/oauth2/authorize?permissions=301001759&scope=bot&client_id=你的機器人的clientID)把client_id的地方改成你自己的機器人client_id, 就可以將機器人邀請進自己的伺服器了
+
 **機器人的Token不能在網路上洩漏, 一旦洩漏Discord官方會自動幫你重新建立, 
 到時候就要去自己的程式把Token換掉, 
 記得在網路上存程式(如: Github)的時候要把Token刪掉。**
-:::
+
 
 ### 讓機器人上線並出入語音頻道
 利用Windows上的cmd, 輸入下列指令
@@ -70,11 +67,11 @@ async def leave(ctx):
 client.run("Input Your Token")
 ```
 
-:::warning
-這個步驟中可能會缺一些套件,
-在cmd使用 pip install **缺少的套件名稱**
-就可以解決
-:::
+
+**這個步驟中可能會缺一些套件,
+在cmd使用 "pip install 缺少的套件名稱"
+就可以解決**
+
 
 到這裡為止,已經做好了一個機器人, 並且可以隨意進出call他的使用者所在的語音頻道內了。
 
