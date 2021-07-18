@@ -1,6 +1,6 @@
 # Discord音樂機器人
 
-[![hackmd-github-sync-badge](https://hackmd.io/GHB52IxRT52hWGh_HF-Ylw/badge)](https://hackmd.io/GHB52IxRT52hWGh_HF-Ylw)
+[![hackmd-github-sync-badge](https://hackmd.io/GHB52IxRT52hWGh_HF-Ylw/badge)](https://hackmd.io/@lnGojzQ2THyJmN-nQtZp8g/HyPK1VZC_)
 
 
 ### 前置步驟
