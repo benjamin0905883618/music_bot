@@ -1,7 +1,10 @@
 # Discord音樂機器人
 
+[![hackmd-github-sync-badge](https://hackmd.io/GHB52IxRT52hWGh_HF-Ylw/badge)](https://hackmd.io/GHB52IxRT52hWGh_HF-Ylw)
+
+
 ### 前置步驟
-1. 安裝python, 記得要包含pip。
+1. 安裝python, 記得要包含pip
 2. Discord帳號
 
 ### 申請Discord bot
