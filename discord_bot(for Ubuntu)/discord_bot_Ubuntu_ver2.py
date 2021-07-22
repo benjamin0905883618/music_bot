@@ -18,7 +18,10 @@ def download_song(url, play = True):
         else:
             url = result['webpage_url']
             length = 1
-        YoutubeDL({'format':'bestaudio'}).download([url])
+        download_opts = {'format':'bestaudio',
+                   'external_downloader':'aria2c',
+                   'external_downloader_args':'-x 16 -s 16 -k 1M',}
+        YoutubeDL(download_opts).download([url])
         return "Insert " + str(length) + " song(s) into playing list"
     else:
         if 'entries' in result:
